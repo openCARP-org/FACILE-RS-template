@@ -10,6 +10,7 @@ jobs:
     uses: ./.github/workflows/create-metadata.yml
   prepare-release:
     runs-on: ubuntu-22.04
+    environment: facile-rs
     steps:
       - uses: actions/checkout@v4
         with:

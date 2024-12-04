@@ -9,8 +9,11 @@ jobs:
   # Create CFF file and export it as an artifact
   create-cff:
     runs-on: ubuntu-22.04
+    environment: facile-rs
     steps:
       - uses: actions/checkout@v4
+        with:
+          ssh-key: ${{ secrets.PRIVATE_KEY }}
       - uses: ./.github/actions/setvars
       - name: Install FACILE-RS
         run: pip install FACILE-RS==${{ env.FACILE_RS_VERSION }}
